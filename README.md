@@ -1,4 +1,4 @@
-# token_web
+# otc-web
 
 > A Vue.js project
 

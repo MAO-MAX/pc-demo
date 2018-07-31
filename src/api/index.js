@@ -4,15 +4,21 @@
  *          POST(url, body, options)
  */
 
-import {GET, POST} from './config/index.js'
+import {GET, POST} from './config/index.js';
+
+// 获取新闻列表
+export function getNewsList(params, options) {
+  let url = '/news/getList';
+  return POST(url, params, options);
+}
 
 // 获取首页信息
 export function getData(params, options) {
-    let url = '/tokens/' + params.tokenId
-    return GET(url, params.query, options)
+  let url = '/tokens/' + params.tokenId;
+  return GET(url, params.query, options);
 }
 
 // 是否关注
 export function follow(data, options) {
-    return POST('/users/' + data.user_id + '/follow', data.body, options)
+  return POST('/users/' + data.user_id + '/follow', data.body, options);
 }

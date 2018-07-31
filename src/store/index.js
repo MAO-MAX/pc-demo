@@ -1,30 +1,26 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 import {
-  SET_HEADER
-} from './mutationTypes.js'
+  SET_LANG
+} from './mutationTypes.js';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
-    test: {
-        a: 1
-    },
-    info: {}
-}
+  lang: 'cn'
+};
 
 const mutations = {
-    [SET_HEADER](state, data) {
-        state.info = data
-    }
-}
+  [SET_LANG](state, data) {
+    state.lang = data;
+  }
+};
 
-const actions = {
-}
+const actions = {};
 
 export default new Vuex.Store({
-    strict: true, // 请确保在发布环境下关闭严格模式，以避免性能损失。
-    state,
-    mutations,
-    actions
-})
+  // strict: true, // 请确保在发布环境下关闭严格模式，以避免性能损失。
+  state,
+  mutations,
+  actions
+});

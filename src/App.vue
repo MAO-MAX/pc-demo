@@ -1,22 +1,18 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive" />
+    </keep-alive>
+    <router-view  v-if="!$route.meta.keepAlive" />
   </div>
 </template>
 
 <script>
 export default {
-    name: 'app'
-}
+  name: 'App'
+};
 </script>
 
 <style lang="less">
-@import '~vux/src/styles/reset.less';
-@import '~vux/src/styles/1px.less';
-@import './assets/css/reset.css';
-@import './assets/css/customer.less';
-
-body {
-  background-color: #fbf9fe;
-}
+  @import "./assets/css/reset.css";
 </style>

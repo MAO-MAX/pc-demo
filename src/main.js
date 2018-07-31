@@ -1,27 +1,27 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import FastClick from 'fastclick'
-import router from './router/index.js'
-import store from './store/index.js'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App';
+import router from './router/index.js';
+import store from './store/index.js';
 
-import 'swiper/dist/css/swiper.css'
+// element-ui组件模块
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
-// 对重复使用的组件在 main.js 进行全局注册，减少在组件内重复引用和相关包的大小；
-import { AlertPlugin, ToastPlugin } from 'vux'
+// i18n国际化语言插件
+import i18n from './lang/index.js';
 
-Vue.use(AlertPlugin)
-Vue.use(ToastPlugin)
+// mock数据模块
+require('./mock/index.js');
 
-// 移除移动端页面点击延迟
-FastClick.attach(document.body)
+Vue.use(ElementUI);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app-box')
+  el: '#app',
+  i18n,
+  router,
+  store,
+  render: h => h(App)
+});

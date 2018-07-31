@@ -1,19 +1,24 @@
+// https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    parser: 'babel-eslint'
   },
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
+  env: {
+    browser: true,
+  },
+  extends: [
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    'plugin:vue/essential',
+    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    'standard'
+  ],
   // required to lint *.vue files
   plugins: [
-    'html'
+    'vue'
   ],
-  globals: {
-    Vue: true
-  },
-  
   // add your custom rules here
   // "off" or 0  将规则关闭
   // "warn" or 1  将规则视为一个警告
@@ -28,11 +33,10 @@ module.exports = {
     // 指定数组的元素之间要以空格隔开(,后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格
     "array-bracket-spacing": [2, "never"],
     // 控制逗号前后的空格
-    "comma-spacing": [2, {"before": false, "after": true}],
+    "comma-spacing": [1, {"before": false, "after": true}],
     "indent": [2, 2, {"SwitchCase": 1}],
-    // "indent": [2, 4],
     //语句强制分号结尾
-    // "semi": [2, "always"],
+    "semi": [2, "always"],
     // 不允许声明的变量未使用
     "no-unused-vars": 0,
     // 不允许使用未声明的变量

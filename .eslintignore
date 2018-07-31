@@ -3,6 +3,4 @@
 /dist/
 /*.js
 /test/unit/coverage/
-/src/style
-/index.html
-/scr/untils/*
+/src/views/*.vue
